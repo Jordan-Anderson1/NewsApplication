@@ -156,14 +156,12 @@ public class HomeFragment extends Fragment {
             storiesList.add(article);
         }
 
-
-
-        //set adapter to recycler
+        //Initialise adapters
         topStoriesRecyclerAdapter = new StoriesRecyclerAdapter(topStoriesList, getActivity().getSupportFragmentManager());
         storiesRecyclerAdapter = new StoriesRecyclerAdapter(storiesList, getActivity().getSupportFragmentManager());
 
 
-
+        //SET ADAPTERS
         topStoriesRecyclerView.setAdapter(topStoriesRecyclerAdapter);
         newsRecyclerView.setAdapter(storiesRecyclerAdapter);
         return view;

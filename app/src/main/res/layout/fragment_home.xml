@@ -3,41 +3,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     tools:context=".HomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#000000"
         android:orientation="vertical">
+
+
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#000000"
             android:fontFamily="sans-serif"
+            android:padding="5dp"
             android:text="TOP STORIES"
-            android:textSize="24sp"
+            android:textColor="#FF2D50"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/topStoriesRecycler"
             android:layout_width="match_parent"
-            android:layout_height="200dp" >
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:padding="5dp">
 
         </androidx.recyclerview.widget.RecyclerView>
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#000000"
+            android:padding="5dp"
             android:text="NEWS"
-            android:textSize="24sp"
+            android:textColor="#FF2D50"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/newsRecycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:padding="5dp" />
     </LinearLayout>
 
 </FrameLayout>

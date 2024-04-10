@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class StoriesRecyclerAdapter extends RecyclerView.Adapter<StoriesRecyclerAdapter.ViewHolder> {
@@ -23,12 +26,17 @@ public class StoriesRecyclerAdapter extends RecyclerView.Adapter<StoriesRecycler
 
     private List<NewsArticle> storiesList;
 
+    int position;
+
     public StoriesRecyclerAdapter(List<NewsArticle> storiesList, FragmentManager fragmentManager){
         this.storiesList = storiesList;
         this.fragmentManager = fragmentManager;
 
 
     }
+
+
+
 
     @NonNull
     @Override
@@ -45,6 +53,8 @@ public class StoriesRecyclerAdapter extends RecyclerView.Adapter<StoriesRecycler
 
         NewsArticle article = storiesList.get(position);
 
+        Picasso.get().load(storiesList.get(position).getImageUrl()).into(holder.image);
+
 
         }
 
@@ -59,10 +69,13 @@ public class StoriesRecyclerAdapter extends RecyclerView.Adapter<StoriesRecycler
         TextView title;
         TextView description;
 
+        ImageView image;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.titleText);
             description = itemView.findViewById(R.id.articleText);
+            image = itemView.findViewById(R.id.imageView);
 
 
             //SET ON CLICK LISTENER
@@ -86,6 +99,8 @@ public class StoriesRecyclerAdapter extends RecyclerView.Adapter<StoriesRecycler
             Bundle bundle = new Bundle();
             bundle.putString("title", article.getTitle());
             bundle.putString("description", article.getDescription());
+            bundle.putString("imageUrl", article.getImageUrl());
+//           bundle.putString("url", imageUrl);
 
             ArticleFragment fragment = new ArticleFragment();
             fragment.setArguments(bundle);
